@@ -5,11 +5,11 @@
   "license": "Apache-2.0",
   "scripts": {
     "dev": "next dev",
-    "build": "yarn --cwd ../sdk build && next build",
+    "build": "next build",
     "start": "next start"
   },
   "dependencies": {
-    "@chainwrit/sdk": "0.1.0",
+    "@chainwrit/sdk": "^0.1.0",
     "@solana/spl-token": "^0.4.15",
     "@solana/web3.js": "^1.99.0",
     "bs58": "^6.0.0",
@@ -25,5 +25,9 @@
     "@types/react-dom": "^19.1.0",
     "tailwindcss": "^4.1.0",
     "typescript": "^5.7.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chainwrit/web"
   }
 }

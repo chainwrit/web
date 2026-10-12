@@ -12,12 +12,12 @@ export interface Deployments {
   proof?: Record<string, string>;
 }
 
-// The repo's deployments/devnet.json is the source of truth; it holds public
-// addresses only. Env vars win so a deployment can point at another mandate.
+// Public addresses copied from chainwrit/core deployments/devnet.json. Env
+// vars win so a deployment can point at another mandate.
 export function deployments(): Deployments {
   let file: Partial<Deployments> = {};
   try {
-    file = JSON.parse(fs.readFileSync(path.join(process.cwd(), "..", "deployments", "devnet.json"), "utf8"));
+    file = JSON.parse(fs.readFileSync(path.join(process.cwd(), "deployments", "devnet.json"), "utf8"));
   } catch {}
   return {
     program: process.env.PROGRAM_ID ?? file.program ?? "",
