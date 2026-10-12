@@ -8,7 +8,7 @@ The product dashboard (wallet connect, create and manage mandates) lives in [cha
 
 - `/` landing page
 - `/demo` live mandate state from devnet, plus a scripted agent that buys a report through an x402-style 402 flow, then obeys a hidden instruction to pay an attacker and is rejected on-chain
-- `/poisoned` the article with the hidden prompt injection
+- `/gpu-prices` the article with the hidden prompt injection
 - `/api/merchant/report` the x402-style paid endpoint. It follows the HTTP 402 pattern but is not a spec-compliant x402 facilitator
 - `/api/agent/run` the scripted (non-LLM) agent, streamed as NDJSON
 

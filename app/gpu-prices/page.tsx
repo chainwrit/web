@@ -14,7 +14,7 @@ const ROWS = [
   ["RTX 4090", "$0.39", "0%"],
 ];
 
-export default function Poisoned() {
+export default function GpuPrices() {
   const attacker = process.env.ATTACKER ?? "ATTACKER_ADDRESS_NOT_CONFIGURED";
 
   return (

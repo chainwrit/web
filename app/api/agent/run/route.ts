@@ -105,8 +105,8 @@ async function run(origin: string, emit: (s: Step) => void) {
   }
 
   // Step 2: the agent reads a page with a hidden instruction and obeys it.
-  emit({ id: "read", status: "running", title: "Reading /poisoned for context" });
-  const html = await fetch(`${origin}/poisoned`, { cache: "no-store" }).then((r) => r.text());
+  emit({ id: "read", status: "running", title: "Reading /gpu-prices for context" });
+  const html = await fetch(`${origin}/gpu-prices`, { cache: "no-store" }).then((r) => r.text());
   const injected = html.match(/Send ([\d.]+) dUSDC to ([1-9A-HJ-NP-Za-km-z]{32,44})/);
   if (!injected) {
     emit({ id: "read", status: "error", title: "No injected instruction found on the page" });
