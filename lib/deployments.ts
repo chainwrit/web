@@ -31,6 +31,6 @@ export function deployments(): Deployments {
 }
 
 export const GITHUB_URL = "https://github.com/chainwrit/core";
-export const APP_URL = "https://chainwrit-app.vercel.app";
+export const APP_URL = "/app";
 export const explorer = (kind: "address" | "tx", id: string) =>
   `https://explorer.solana.com/${kind}/${id}?cluster=devnet`;

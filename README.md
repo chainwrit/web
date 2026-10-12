@@ -2,9 +2,9 @@
 
 Landing page and live demo for [Chainwrit](https://github.com/chainwrit/core): spending limits for AI agents, enforced by Solana.
 
-Live: https://chainwrit.vercel.app
+Live: https://chainwrit.com
 
-The product dashboard (wallet connect, create and manage mandates) lives in [chainwrit/app](https://github.com/chainwrit/app): https://chainwrit-app.vercel.app
+The product dashboard (wallet connect, create and manage mandates) lives in [chainwrit/app](https://github.com/chainwrit/app): https://chainwrit.com/app
 
 - `/` landing page
 - `/demo` live mandate state from devnet, plus a scripted agent that buys a report through an x402-style 402 flow, then obeys a hidden instruction to pay an attacker and is rejected on-chain
