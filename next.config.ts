@@ -13,11 +13,16 @@ const config: NextConfig = {
     ];
   },
   // chainwrit.com/app is the dashboard, a separate Vercel project built with basePath "/app".
+  // beforeFiles so the dashboard's own router requests (RSC) for /app are proxied too.
   async rewrites() {
-    return [
-      { source: "/app", destination: `${APP_ORIGIN}/app` },
-      { source: "/app/:path*", destination: `${APP_ORIGIN}/app/:path*` },
-    ];
+    return {
+      beforeFiles: [
+        { source: "/app", destination: `${APP_ORIGIN}/app` },
+        { source: "/app/:path*", destination: `${APP_ORIGIN}/app/:path*` },
+      ],
+      afterFiles: [],
+      fallback: [],
+    };
   },
 };
 
