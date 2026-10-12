@@ -4,6 +4,8 @@ Landing page and live demo for [Chainwrit](https://github.com/chainwrit/core): s
 
 Live: https://chainwrit.vercel.app
 
+The product dashboard (wallet connect, create and manage mandates) lives in [chainwrit/app](https://github.com/chainwrit/app): https://chainwrit-app.vercel.app
+
 - `/` landing page
 - `/demo` live mandate state from devnet, plus a scripted agent that buys a report through an x402-style 402 flow, then obeys a hidden instruction to pay an attacker and is rejected on-chain
 - `/poisoned` the article with the hidden prompt injection

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { GITHUB_URL, deployments, explorer } from "@/lib/deployments";
+import { APP_URL, GITHUB_URL, deployments, explorer } from "@/lib/deployments";
 
 const PROBLEMS = [
   {
@@ -73,6 +73,7 @@ export default function Home() {
         <img src="/logo-lockup.svg" alt="Chainwrit" className="h-7 w-auto" />
         <nav className="flex gap-5 text-sm text-muted">
           <Link href="/demo" className="hover:text-fg">Demo</Link>
+          <a href={APP_URL} className="hover:text-fg">App</a>
           <a href={GITHUB_URL} className="hover:text-fg">GitHub</a>
         </nav>
       </header>
@@ -90,6 +91,9 @@ export default function Home() {
           <Link href="/demo" className="rounded-md bg-accent px-5 py-2.5 text-sm font-medium text-black hover:opacity-90">
             Try the live demo
           </Link>
+          <a href={APP_URL} className="rounded-md border border-line px-5 py-2.5 text-sm font-medium hover:border-muted">
+            Open the app
+          </a>
           <a href={GITHUB_URL} className="rounded-md border border-line px-5 py-2.5 text-sm font-medium hover:border-muted">
             View on GitHub
           </a>
