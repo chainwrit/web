@@ -20,7 +20,6 @@ function requirements() {
     mint: c.mint.toBase58(),
     recipient: c.merchantA.toBase58(),
     program: c.programId.toBase58(),
-    mandate: c.mandate.toBase58(),
     reference: `report-${Date.now().toString(36)}`,
     description: "GPU price report, this week",
   };
@@ -38,15 +37,16 @@ async function verify(signature: string): Promise<string | null> {
   if (tx.meta.err) return "transaction failed on-chain";
   if (!tx.blockTime || Date.now() / 1000 - tx.blockTime > MAX_AGE_SECONDS) return "payment is too old";
 
+  // Any Chainwrit mandate may pay, as long as the program itself moved the
+  // funds to us: the merchant cares that a mandate approved it, not whose.
   const keys = tx.transaction.message.getAccountKeys().staticAccountKeys;
-  const invoked = tx.transaction.message.compiledInstructions.some(
-    (ix) => keys[ix.programIdIndex].equals(c.programId) && ix.accountKeyIndexes.some((i) => c.acceptedMandates.some((m) => keys[i].equals(m))),
-  );
-  if (!invoked) return "payment did not go through the Chainwrit mandate";
-
   const merchantAta = getAssociatedTokenAddressSync(c.mint, c.merchantA, true);
   const idx = keys.findIndex((k) => k.equals(merchantAta));
   if (idx < 0) return "payment did not go to the merchant";
+  const viaMandate = tx.transaction.message.compiledInstructions.some(
+    (ix) => keys[ix.programIdIndex].equals(c.programId) && ix.accountKeyIndexes.includes(idx),
+  );
+  if (!viaMandate) return "payment did not go through a Chainwrit mandate";
   const balance = (list: typeof tx.meta.postTokenBalances) =>
     BigInt(list?.find((b) => b.accountIndex === idx)?.uiTokenAmount.amount ?? "0");
   const received = balance(tx.meta.postTokenBalances) - balance(tx.meta.preTokenBalances);
