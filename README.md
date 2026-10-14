@@ -7,8 +7,8 @@ Live: https://chainwrit.com
 The product dashboard (wallet connect, create and manage mandates) lives in [chainwrit/app](https://github.com/chainwrit/app): https://chainwrit.com/app
 
 - `/` landing page
-- `/demo` live mandate state from devnet, plus a scripted agent that buys a report through an x402-style 402 flow, then obeys a hidden instruction to pay an attacker and is rejected on-chain
-- `/gpu-prices` the article with the hidden prompt injection
+- `/demo` live mandate state from devnet, plus a scripted agent that buys a report through an x402-style 402 flow, then pays a fake paywall that sends funds to an attacker and is rejected on-chain
+- `/gpu-prices` an article behind a fake paywall whose "publisher wallet" is the attacker
 - `/api/merchant/report` the x402-style paid endpoint. It follows the HTTP 402 pattern but is not a spec-compliant x402 facilitator
 - `/api/agent/run` the scripted (non-LLM) agent, streamed as NDJSON
 

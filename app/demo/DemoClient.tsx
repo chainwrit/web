@@ -174,7 +174,7 @@ export default function DemoClient() {
         </div>
         <p className="mb-4 text-sm text-muted">
           The agent buys a report from merchant A through an x402-style 402 flow, then reads{" "}
-          <a href="/gpu-prices" className="text-accent hover:underline">a web page</a> with a hidden instruction to pay an
+          <a href="/gpu-prices" className="text-accent hover:underline">a web page</a> with a fake paywall that pays an
           attacker, and obeys it. No model is involved: this is the worst case, an agent that does whatever it is told.
         </p>
         {capReached && (
